@@ -25,7 +25,7 @@ class RestaurantsResource extends Resource
     protected static ?int $navigationSort = 7;
     public static function form(Form $form): Form
     {
-        //form
+        //form update
         return $form
             ->schema([
                 Forms\Components\Section::make('Resturant Status')->schema([
