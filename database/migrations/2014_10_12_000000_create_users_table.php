@@ -28,8 +28,13 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->boolean('mobile_user')->default(false);
-            $table->tinyInteger('status')->default('1');
+            $table->string('status')->default('1');
+            $table->string('otp')->nullable();
+            $table->string('otp_verified')->default('0');
+            $table->string('profile')->nullable();
+            $table->string('profile_img', 255)->nullable();
             $table->timestamps();
+
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name',50);
             $table->string('phone',20);
             $table->string('type',50);
+            $table->string('country',50);
             $table->string('social_name',50);
             $table->string('description',255);
             $table->boolean('status')->default(1);
