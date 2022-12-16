@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
@@ -40,5 +41,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('errorReportList',[ErrorGenerateController::class,'errorReportList']);
     Route::post('reportingError',[ErrorGenerateController::class,'errorReport']);
     Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
+    Route::get('categoryList',[CategoryController::class,'categoryList']);
 
 });
