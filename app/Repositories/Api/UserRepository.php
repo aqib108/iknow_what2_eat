@@ -108,8 +108,10 @@ class UserRepository extends BaseRepository
     public function uploadImage($request){
         $img = $request->file('image');
         $data['profile'] = $img->getClientOriginalName();
-         $path= Storage::put('public/images'  , $img);
-         $data['profile_img']=trim($path,"public");
+        //  $path= Storage::put('public/images'  , $img);
+         $path = Storage::disk('public')->put('images', $img);
+        //  $data['profile_img']=trim($path,"public");
+         $data['profile_img']=$path;
        $response = User::where('id', $request->user()->id)->update($data);
        if($response==1){
         $imageUploadResponse = User::where('id', $request->user()->id)->first();
