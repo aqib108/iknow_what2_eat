@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Api\ErrorGenerateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,5 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('dobUpdate',[UserController::class,'dobUpdate']);
     Route::post('uploadImage',[UserController::class,'uploadImage']);
     Route::post('editProfile',[UserController::class,'editProfile']);
+    Route::get('errorReportList',[ErrorGenerateController::class,'errorReportList']);
 });
