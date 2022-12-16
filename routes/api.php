@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\ErrorGenerateController;
+use App\Http\Controllers\Api\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('sendFeedback',[HomeController::class,'Feedback']);
     Route::get('errorReportList',[ErrorGenerateController::class,'errorReportList']);
     Route::post('reportingError',[ErrorGenerateController::class,'errorReport']);
+    Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
+
 });
