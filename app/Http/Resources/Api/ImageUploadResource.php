@@ -15,8 +15,11 @@ class ImageUploadResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'Collection' => [
            'filename'=>$this->profile,
-           'filePath'=>$this->profile_img,
+           'filePath'=>asset('storage/'.$this->profile_img)
+            ]
+
         ];
         // return parent::toArray($request);
     }
