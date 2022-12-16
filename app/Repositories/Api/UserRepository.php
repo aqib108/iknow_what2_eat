@@ -11,6 +11,8 @@ use App\Http\Resources\Api\OtpVerifyResource;
 use App\Http\Resources\Api\ProfileResource;
 use App\Http\Resources\Api\DobResource;
 use App\Http\Resources\Api\ImageUploadResource;
+use Illuminate\Support\Facades\Storage;
+
 
 /**
  * Class UserRepository.
@@ -104,8 +106,9 @@ class UserRepository extends BaseRepository
             return $DobResponse;
     }
     public function uploadImage($request){
-       $data['profile']= time().'.'.$request->image->extension();
-       $data['profile_img']= $request->image->move(public_path('images'), $data['profile']);
+        $img = $request->file('image');
+        $data['profile'] = $img->getClientOriginalName();
+        $data['profile_img']=$img->storeAs('public',$data['profile']);
        $response = User::where('id', $request->user()->id)->update($data);
        if($response==1){
         $imageUploadResponse = User::where('id', $request->user()->id)->first();
