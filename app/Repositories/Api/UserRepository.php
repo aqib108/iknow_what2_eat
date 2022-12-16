@@ -114,11 +114,27 @@ class UserRepository extends BaseRepository
        if($response==1){
         $imageUploadResponse = User::where('id', $request->user()->id)->first();
         $imageUploadResponse =  new ImageUploadResource($imageUploadResponse);
+        return $imageUploadResponse;
     }
 
-       return $imageUploadResponse;
 
 
+
+
+
+    }
+    public function editProfile($request){
+        $data = [
+            'first_name' => $request->firstName,
+            'last_name' => $request->lastName,
+            'phone_number'=>$request->Phone,
+            'dob' => $request->Dob,
+            'profile_img'=>$request->Image
+        ];
+        User::where('id', $request->user()->id)->update($data);
+        $response = User::where('id', $request->user()->id)->first();
+        $ProfileResponse =  new ProfileResource($response);
+            return $ProfileResponse;
 
 
     }

@@ -9,6 +9,7 @@ use App\Repositories\Api\UserRepository;
 use App\Http\Requests\Api\OtpGenerateRequest;
 use App\Http\Requests\Api\OtpVerifyRequest;
 use App\Http\Requests\Api\ImageStoreRequest;
+use App\Http\Requests\Api\EditProfileRequest;
 
 
 
@@ -126,6 +127,13 @@ class UserController extends BaseController
         return $this->sendResponse($data,'Image Uploaded Successfully');
 
         }
+
+    public function editProfile(EditProfileRequest $request){
+        $data = $this->UserRepository->editProfile($request);
+        return $this->sendResponse($data,'Profile Updated Successfully');
+
+        }
+
 
 
 }

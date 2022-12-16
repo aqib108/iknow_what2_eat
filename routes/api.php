@@ -34,4 +34,5 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('getProfile',[UserController::class,'getProfile']);
     Route::post('dobUpdate',[UserController::class,'dobUpdate']);
     Route::post('uploadImage',[UserController::class,'uploadImage']);
+    Route::post('editProfile',[UserController::class,'editProfile']);
 });
