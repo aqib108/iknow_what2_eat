@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\ErrorReportRequest;
 use Illuminate\Http\Request;
 use App\Repositories\Api\ErrorGenerateRepository;
 
@@ -16,5 +17,9 @@ class ErrorGenerateController extends BaseController
     public function errorReportList(Request $request){
         $data = $this->ErrorGenerateRepository->errorReportList($request);
         return $this->sendResponse($data,'Error Report List generated successfully');
+    }
+    public function errorReport(ErrorReportRequest $request){
+        $data = $this->ErrorGenerateRepository->errorReport($request);
+        return $this->sendResponse($data,'Error Reported successfully');
     }
 }

@@ -6,6 +6,7 @@ namespace App\Repositories\Api;
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 use App\Models\Api\ErrorReportings;
 use App\Http\Resources\Api\ListErrorResource;
+use App\Http\Resources\Api\ErrorGenerateResource;
 
 /**
  * Class ErrorGenerateRepository.
@@ -25,6 +26,16 @@ class ErrorGenerateRepository extends BaseRepository
     public function errorReportList($request){
         $data = ErrorReportings::all();
         return ListErrorResource::collection($data);
+
+    }
+    public function errorReport($request){
+          $data=[
+            'error_type_id'=>$request->errors,
+            'message'=>$request->message,
+          ];
+            $data = ErrorReportings::create($data);
+            return new ErrorGenerateResource($data);
+
 
     }
 }
