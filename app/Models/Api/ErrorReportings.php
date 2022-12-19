@@ -10,5 +10,6 @@ class ErrorReportings extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'message',
     ];
 }
