@@ -16,11 +16,9 @@ class CategoryListResource extends JsonResource
     {
 
        return [
-        'categories'=>[
             'id' => $this->id,
             'image' => $this->icon,
             'name' => $this->name_en,
-       ]
         ];
         // return parent::toArray($request);
     }
