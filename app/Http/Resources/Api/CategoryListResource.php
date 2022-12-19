@@ -14,10 +14,13 @@ class CategoryListResource extends JsonResource
      */
     public function toArray($request)
     {
-        [
+
+       return [
+        'categories'=>[
             'id' => $this->id,
             'image' => $this->icon,
             'name' => $this->name_en,
+       ]
         ];
         // return parent::toArray($request);
     }

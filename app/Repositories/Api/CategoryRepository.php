@@ -22,7 +22,10 @@ class CategoryRepository extends BaseRepository
     }
     public function categoryList($request){
         $data = Category::all();
-        return CategoryListResource::collection($data);
+        foreach ($data as $data){
+            return new CategoryListResource($data);
+        }
+
 
     }
 }
