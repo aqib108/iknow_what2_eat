@@ -4,7 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryListResource extends JsonResource
+class AboutResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,13 @@ class CategoryListResource extends JsonResource
      */
     public function toArray($request)
     {
-
-       return [
-            'id' => $this->id,
-            'image' => $this->icon,
-            'name' => $this->name_en,
+        return[
+            'about' => $this->about_me_en,
+            'stayConnect'=> $this->stay_social_en,
+            'Instagram' => $this->insta_url,
+            'Snapchat' => $this->snapchat_url,
+            'Tiktok' => $this->tiktok_url,
+            'Youtube' => $this->youtube_url,
         ];
         // return parent::toArray($request);
     }

@@ -4,7 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryListResource extends JsonResource
+class UserFavourtRestaurantResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,8 @@ class CategoryListResource extends JsonResource
      */
     public function toArray($request)
     {
-
-       return [
-            'id' => $this->id,
-            'image' => $this->icon,
-            'name' => $this->name_en,
+        return [
+            'is_favourt' => $this['is_favourt'],
         ];
         // return parent::toArray($request);
     }

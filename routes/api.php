@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\CategoryController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\ErrorGenerateController;
 use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\FavourtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +45,9 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('reportingError',[ErrorGenerateController::class,'errorReport']);
     Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
     Route::get('categoryList',[CategoryController::class,'categoryList']);
+    Route::get('about',[AboutController::class,'about']);
+    Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
+    Route::get('favouriteList',[FavourtController::class,'favouriteList']);
+
 
 });

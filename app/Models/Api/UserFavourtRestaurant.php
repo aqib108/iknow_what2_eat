@@ -5,11 +5,13 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ErrorReportings extends Model
+class UserFavourtRestaurant extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'message',
+        'is_favourt',
+        'user_id',
+        'restaurant_id',
     ];
+
 }
