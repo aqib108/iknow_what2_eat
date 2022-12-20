@@ -14,13 +14,16 @@ class UserFavourtRestaurantListResource extends JsonResource
      */
     public function toArray($request)
     {
-        return
-         [
+        $favorites = [
             'Restaurants' => [
                 'isNew' => $this->new_in_town,
                 'restaurantName' => $this->title_en,
                 'price' => $this->price,
             ]
+        ];
+        return
+         [
+            'favorites' => $favorites
         ];
         // return parent::toArray($request);
     }
