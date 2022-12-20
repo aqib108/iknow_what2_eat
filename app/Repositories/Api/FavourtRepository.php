@@ -42,6 +42,10 @@ class FavourtRepository extends BaseRepository
     }
     public function favouriteList($request){
         $data= auth()->user()->favourtRestaurants()->where('is_favourt',1)->get();
-            return UserFavourtRestaurantListResource::collection($data);
+        foreach($data as $data){
+            return new UserFavourtRestaurantListResource($data);
+
+        }
+
     }
 }
