@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ErrorGenerateController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\FavourtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
     Route::get('categoryList',[CategoryController::class,'categoryList']);
     Route::get('about',[AboutController::class,'about']);
+    Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
+
 
 });
