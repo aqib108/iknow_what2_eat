@@ -6,6 +6,7 @@ use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 //use Your Model
 use App\Models\Api\UserFavourtRestaurant;
 use App\Http\Resources\Api\UserFavourtRestaurantResource;
+use App\Http\Resources\Api\UserFavourtRestaurantListResource;
 
 /**
  * Class FavourtRepository.
@@ -38,5 +39,9 @@ class FavourtRepository extends BaseRepository
                 return new UserFavourtRestaurantResource ($response);
 
         }
+    }
+    public function favouriteList($request){
+        $data= auth()->user()->favourtRestaurants()->where('is_favourt',1)->get();
+            return UserFavourtRestaurantListResource::collection($data);
     }
 }

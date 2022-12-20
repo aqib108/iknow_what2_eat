@@ -47,6 +47,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('categoryList',[CategoryController::class,'categoryList']);
     Route::get('about',[AboutController::class,'about']);
     Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
+    Route::get('favouriteList',[FavourtController::class,'favouriteList']);
 
 
 });

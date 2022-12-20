@@ -17,4 +17,9 @@ class FavourtController extends BaseController
         $data = $this->FavourtRepository->makeFavourt($request);
         return $this->sendResponse($data,'Make Favourt successfully');
     }
+    public function favouriteList(Request $request){
+        $data = $this->FavourtRepository->favouriteList($request);
+        return $this->sendResponse($data,'Favourt List generated successfully');
+    }
+    
 }
