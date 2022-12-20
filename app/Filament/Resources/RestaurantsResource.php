@@ -101,7 +101,7 @@ class RestaurantsResource extends Resource
         Forms\Components\TimePicker::make('friday_to')->label('to'),
         Forms\Components\Checkbox::make('Saturday'),
         Forms\Components\TimePicker::make('saturday_from')->label('Form'),
-        Forms\Components\TimePicker::make('saurday_to')->label('To')
+        Forms\Components\TimePicker::make('saturday_to')->label('To')
     ])
     ->columns(3),
     Forms\Components\Fieldset::make('Amenities')->schema([
@@ -130,8 +130,8 @@ class RestaurantsResource extends Resource
                 Forms\Components\TextInput::make('name_en')->label('caption\Item Name (English)')->required(),
                 Forms\Components\TextInput::make('name_ar')->label('caption\Item Name (Arabic)')->required(),
                 Forms\Components\TextInput::make('price')->label('Price (BHD)')->required(),
-                Forms\Components\Select::make('cusinies_id')->label('cuisines')->options(Cuisines::all()->pluck('name_en', 'id'))->multiple()->disablePlaceholderSelection(),
-                Forms\Components\Select::make('occassions')->label('occassions')->options(Categories::all()->pluck('name_en', 'id'))->multiple()->disablePlaceholderSelection(),
+                Forms\Components\Select::make('photo_cuisines_ids')->label('cuisines')->options(Cuisines::all()->pluck('name_en', 'id'))->multiple()->disablePlaceholderSelection(),
+                Forms\Components\Select::make('photo_occassions')->label('occassions')->options(Categories::all()->pluck('name_en', 'id'))->multiple()->disablePlaceholderSelection(),
             ])->createItemButtonLabel('+ Add Image'),
         ])->compact(),
         Forms\Components\Section::make('Shukris Favourites')->schema([

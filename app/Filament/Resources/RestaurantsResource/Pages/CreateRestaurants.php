@@ -7,6 +7,8 @@ use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Restaurants;
+use App\Models\ResturantMenus;
+use App\Models\Documents;
 use DB;
 
 class CreateRestaurants extends CreateRecord
@@ -22,6 +24,7 @@ class CreateRestaurants extends CreateRecord
 //function is used to save record
 protected function handleRecordCreation(array $data): Model
 {
+    // dd($data);
      $resturants = array();
      $resturants['title_en'] = $data['title_en'];
      $resturants['title_ar'] = $data['title_ar'];
@@ -69,6 +72,22 @@ protected function handleRecordCreation(array $data): Model
          if(isset($data['amenities'])){
             $this->saveResturantDeliveryOptions($resturant_id,$data['delivery_options']);
          }
+         //create a resturant time
+         $this->saveResturantTiming($resturant_id,$data);
+         //create a resturant Menus
+         if(isset($data['menus'])){
+            $this->saveResturantMenus($resturant_id,$data['menus']);
+         }
+         //create a resturant photos
+         if(isset($data['photo_Items'])){
+            $this->saveResturantPhotos($resturant_id,$data['photo_Items']);
+         }
+         //create a resturants sukhari favriute
+         if(isset($data['fav_Items'])){
+            $this->saveResturantSkriFav($resturant_id,$data['fav_Items']);
+         }
+
+
      }else{
         dd('Error in resutrant creation');
      }
@@ -161,6 +180,93 @@ function saveResturantDeliveryOptions($resturant_id,array $deliveryOptions_ids){
         return $e->getMessage();
     }
 }
+function saveResturantTiming($resturant_id,$data){
+   $times = [];
+   $days = ['Sunday','Monday','Tuseday','Wednesday','Thursday','Friday','Saturday'];
+   try{
+    foreach($days as $day){
+        $open_time = strtolower($day).'_from';
+        $close_time = strtolower($day).'_to';
+        $times[] = array(
+           'day'=>$day,
+           'restaurant_id'=>$resturant_id,
+           'open_time'=>$data[$open_time],
+           'close_time'=>$data[$close_time],
+           'status'=>$data[$day]
+        );
+      }
+      return DB::table('restaurant_timing')->insert($times);
+   }catch(\Exception $e){
+    return $e->getMessage();
+   }
+
+}
+function saveResturantMenus($resturant_id,$menus){
+    try{
+        foreach($menus as $menu){
+            $resto_menu = new ResturantMenus;
+            $resto_menu->name = $menu['menu_name'];
+            $resto_menu->link = $menu['menu_url'];
+            $resto_menu->restaurant_id = $resturant_id;
+            $resto_menu->save();
+           if(count($menu['images'])>0){
+            foreach($menu['images'] as $image){
+            $document = new Documents;
+            $document->url = $image;
+            $resto_menu->documents()->save($document);
+         }
+        }
+    }
+      return true;
+    }catch(\Exception $e){
+        return $e->getMessage();
+    }
+
+}
+function saveResturantPhotos($resturant_id,$photos){
+    try{
+        $resto_photos = [];
+        foreach($photos as $photo){
+            $cusinies_ids = $categories_ids = null;
+            if(count($photo['photo_cuisines_ids']) > 0)
+            $cusinies_ids = implode (",", $photo['photo_cuisines_ids']);
+            if(count($photo['photo_occassions'])>0)
+            $categories_ids = implode (",", $photo['photo_occassions']);
+            $resto_photos[] = array(
+                'item_name_en'=>$photo['name_en'],
+                'item_name_ar'=>$photo['name_ar'],
+                'item_price'=>$photo['price'],
+                'cuisines_ids'=>$cusinies_ids,
+                'restaurant_id'=>$resturant_id,
+                'image'=>$photo['images'],
+                'categories_ids'=>$categories_ids
+            );
+          return DB::table('restaurant_photos')->insert($resto_photos);
+        }
+    }catch(\Exception $e){
+        dd($e->getMessage());
+        return $e->getMessage();
+    }
+
+}
+function saveResturantSkriFav($resturant_id,$items){
+    try{
+        $resto_items = [];
+        foreach($items as $item){
+            $resto_items[] = array(
+                'item_name_en'=>$item['name_en'],
+                'item_price'=>$item['price'],
+                'restaurant_id'=>$resturant_id,
+                'image'=>$item['images'],
+            );
+          return DB::table('restaurant_favourties')->insert($resto_items);
+        }
+    }catch(\Exception $e){
+        dd($e->getMessage());
+        return $e->getMessage();
+    }
+
+}
 protected function getRedirectUrl(): string
 {
     return $this->getResource()::getUrl('index');
@@ -172,4 +278,5 @@ protected function mutateAfterCreate(array $data): array
 
      return $data;
 }
+
 }

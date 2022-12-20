@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('restaurant_timing', function (Blueprint $table) {
             $table->id();
-            $table->string('day',15);
+            $table->string('day',15)->nullable();
             $table->unsignedBigInteger('restaurant_id')->nullable();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->string('open_time',60);
-            $table->string('close_time',60);
+            $table->string('open_time',60)->nullable();
+            $table->string('close_time',60)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
