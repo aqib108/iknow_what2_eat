@@ -31,7 +31,7 @@ class CategoriesResource extends Resource
     {
         return $form
         ->schema([
-            Forms\Components\Select::make('status')->options(['Active','Inactive'])->default('Active')->disablePlaceholderSelection()->columnSpan('full'),
+            Forms\Components\Select::make('status')->options(['InActive'=>'InActive','Active'=>'Active'])->disablePlaceholderSelection()->columnSpan('full'),
             Forms\Components\TextInput::make('name_en')->label('Category Name (English)')->required()->columnSpan('full'),
             Forms\Components\TextInput::make('name_ar')->label('Category Name (Arabic)')->required()->columnSpan('full'),
             IconPicker::make('icon')->columnSpan('full'),
