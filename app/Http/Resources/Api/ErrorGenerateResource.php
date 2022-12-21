@@ -15,8 +15,8 @@ class ErrorGenerateResource extends JsonResource
     public function toArray($request)
     {
         return [
-            // 'error_type_id' => $this->error_type_id,
-            // 'message' => $this->message,
+            'error_type_id' => $this->error_type_id,
+            'message' => $this->message,
         ];
         // return parent::toArray($request);
     }

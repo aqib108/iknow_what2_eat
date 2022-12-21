@@ -11,5 +11,6 @@ class ErrorReportings extends Model
     protected $fillable = [
         'name',
         'message',
+        'error_type_id'
     ];
 }

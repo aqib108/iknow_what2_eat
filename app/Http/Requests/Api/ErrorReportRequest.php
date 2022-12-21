@@ -25,6 +25,7 @@ class ErrorReportRequest extends FormRequest
     {
         return [
             'errors' => 'required',
+            'message'=> 'required',
         ];
     }
 }
