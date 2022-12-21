@@ -273,9 +273,6 @@ protected function getRedirectUrl(): string
 }
 protected function mutateAfterCreate(array $data): array
 {
-    dd($data);
-    // $data['user_id'] = auth()->id();
-
      return $data;
 }
 

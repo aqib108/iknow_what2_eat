@@ -31,6 +31,10 @@ Artisan::call('config:cache');
 // Artisan::call('storage:link');
 echo "done";
 });
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+    echo "done";
+    });
 
 
 
