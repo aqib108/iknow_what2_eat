@@ -55,7 +55,7 @@ class UserRepository extends BaseRepository
             $token = "1ac84be82591a90098e9115a8c7a36c3";
             $twilio_sid = "ACad6b9789b5a1fa868594be3fa181080d";
             $twilio_verify_sid = "VA8b5aca98b878292992fe96ad834ca842";
-            $user = User::create($data);
+            $user = User::updateOrCreate(['phone_number'=>$data['phone_number']],$data);
             $twilio = new Client($twilio_sid, $token);
             $response=$twilio->verify->v2->services($twilio_verify_sid)
                 ->verifications

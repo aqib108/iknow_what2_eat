@@ -24,7 +24,7 @@ class OtpGenerateRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone_number' => ['required', 'numeric', 'unique:users'],
+            'phone_number' => ['required', 'numeric'],
         ];
     }
 }
