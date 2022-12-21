@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('delivery_options', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar',50);
-            $table->string('name_en',50);
-            $table->string('logo',255);
+            $table->string('name_ar',50)->nullable();
+            $table->string('name_en',50)->nullable();
+            $table->string('logo',255)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

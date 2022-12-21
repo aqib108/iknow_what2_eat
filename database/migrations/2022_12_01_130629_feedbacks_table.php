@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
-            $table->string('message',255);
+            $table->string('name',50)->nullable();
+            $table->string('message',255)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
