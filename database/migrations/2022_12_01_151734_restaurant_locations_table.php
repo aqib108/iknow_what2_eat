@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('restaurant_locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name',60);
+            $table->string('name',60)->nullable();
             $table->unsignedBigInteger('restaurant_id')->nullable();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->string('location_url',60);
+            $table->string('location_url',60)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

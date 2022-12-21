@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('error_types', function (Blueprint $table) {
             $table->id();
-            $table->string('type',50);
-            $table->string('message',255);
+            $table->string('type',50)->nullable();
+            $table->string('message',255)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

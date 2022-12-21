@@ -15,8 +15,8 @@ class ListErrorResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->error_tpe_id,
-            'name' => $this->name,
+            'id' => $this->id,
+            'name' => $this->errorType->type,
         ];
         // return parent::toArray($request);
     }

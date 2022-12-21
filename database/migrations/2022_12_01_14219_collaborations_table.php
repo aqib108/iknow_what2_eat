@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('collaborations', function (Blueprint $table) {
             $table->id();
-            $table->string('item_name',50);
-            $table->string('price_range',100);
+            $table->string('item_name',50)->nullable();
+            $table->string('price_range',100)->nullable();
             $table->string('image',100)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('error_type_id')->nullable();
             $table->foreign('error_type_id')->references('id')->on('error_types')->onDelete('cascade');
-            $table->string('name',50);
-            $table->string('message',255);
+            $table->string('name',50)->nullable();
+            $table->string('message',255)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
