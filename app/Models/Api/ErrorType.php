@@ -5,16 +5,16 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ErrorReportings extends Model
+class ErrorType extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'type',
         'message',
-        'error_type_id'
+        'status'
     ];
-    public function errorType()
+    public function errorReportings()
     {
-        return $this->belongsTo(ErrorType::class );
+        return $this->hasMany(ErrorReportings::class);
     }
 }

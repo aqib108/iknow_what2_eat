@@ -24,7 +24,7 @@ class ErrorGenerateRepository extends BaseRepository
 
     }
     public function errorReportList($request){
-        $data = ErrorReportings::all();
+        $data = ErrorReportings::with('errorType')->get();
         return ListErrorResource::collection($data);
 
     }
