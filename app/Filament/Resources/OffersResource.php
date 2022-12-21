@@ -23,7 +23,13 @@ class OffersResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Select::make('status')->options(['Draft'=>"Draft",'Expired'=>'Expired','No Expiry'=>'No Expiry','Active'=>'Active'])->disablePlaceholderSelection()->columnSpan('full'),
+                Forms\Components\TextInput::make('offer_code')->label('Offer Code')->required()->columnSpan('full'),
+                Forms\Components\TextInput::make('restuarant_name')->label('Restuarant name')->required()->columnSpan('full'),
+                Forms\Components\TextInput::make('description')->label('Description')->columnSpan('full'),
+                Forms\Components\DatePicker::make('expiry_date')->label('Expiry Date (optional)'),
+                Forms\Components\Checkbox::make('no_expiry'),
+                Forms\Components\FileUpload::make('logo')->label('Logo (500x500)')->image()->imageResizeTargetWidth('500')->imageResizeTargetHeight('500')->columnSpan('full'),
             ]);
     }
 
@@ -43,14 +49,14 @@ class OffersResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -58,5 +64,5 @@ class OffersResource extends Resource
             'create' => Pages\CreateOffers::route('/create'),
             'edit' => Pages\EditOffers::route('/{record}/edit'),
         ];
-    }    
+    }
 }
