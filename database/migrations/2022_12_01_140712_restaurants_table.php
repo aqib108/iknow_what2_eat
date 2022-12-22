@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title_ar',50)->nullable();
             $table->string('title_en',50)->nullable();
-            $table->integer('price');
+            $table->integer('price_en')->nullable();
+            $table->integer('price_ar')->nullable();
             $table->boolean('new_in_town')->default(0);
             $table->string('additional_price_en',50)->nullable();
             $table->string('additional_price_ar',50)->nullable();
@@ -26,7 +27,8 @@ return new class extends Migration
             $table->string('intsa_handle',255)->nullable();
             $table->string('res_description_en',255)->nullable();
             $table->string('res_description_ar',255)->nullable();
-            $table->string('meat_poultry_source',255)->nullable();
+            $table->string('meat_poultry_source_en',255)->nullable();
+            $table->string('meat_poultry_source_ar',255)->nullable();
             $table->string('social_sites',255)->nullable();
             $table->string('status')->nullable('Active');
             $table->timestamps();

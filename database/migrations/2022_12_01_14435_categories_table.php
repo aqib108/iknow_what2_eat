@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name_en',255)->nullable();
             $table->string('icon',255)->nullable();
             $table->string('custom_icon',255)->nullable();
-            $table->string('status',5)->default(1);
+            $table->string('status',50)->default('Active');
             $table->timestamps();
         });
     }

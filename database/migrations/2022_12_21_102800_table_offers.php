@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('logo',255)->nullable();
             // $table->unsignedBigInteger('restaurant_id')->nullable();
             // $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->boolean('status')->default(1);
+            $table->string('status',50)->default('Draft');
             $table->timestamps();
         });
     }

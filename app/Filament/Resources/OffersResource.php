@@ -12,11 +12,12 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 class OffersResource extends Resource
 {
     protected static ?string $model = Offers::class;
-
+    protected static ?string $navigationLabel = 'All Offers';
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -37,10 +38,16 @@ class OffersResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('index')->rowIndex()->label('ID'),
+                TextColumn::make('offer_code')->label('Offer Code'),
+                TextColumn::make('restuarant_name')->label('Resturant Name')->searchable(isIndividual: true, isGlobal: false),
+                TextColumn::make('status')->label('status')->weight('bold')->color('primary'),
+                TextColumn::make('updated_at')->label('Last Updated')->sortable(),
+
             ])
             ->filters([
-                //
+                SelectFilter::make('status')
+              ->options(['Draft'=>"Draft",'Expired'=>'Expired','No Expiry'=>'No Expiry','Active'=>'Active'])->attribute('status')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -30,7 +30,7 @@ class RestaurantsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Section::make('Resturant Status')->schema([
-                    Forms\Components\Select::make('status')->options(['Active'=>"Active",'Inactive'=>'Inactive'])->disablePlaceholderSelection()->columnSpan('full'),
+                    Forms\Components\Select::make('status')->options(['Active'=>"Active",'InActive'=>'InActive'])->default('Active')->disablePlaceholderSelection()->columnSpan('full'),
                     Forms\Components\Checkbox::make('new_in_town')->label('New in Town')->columnSpan('full'),
                 ])->compact(),
 

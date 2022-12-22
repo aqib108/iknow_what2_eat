@@ -23,8 +23,8 @@ class CuisinesResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name_en')->label('Delivery Option Name (English)')->required()->columnSpan('full'),
-                Forms\Components\TextInput::make('name_ar')->label('Delivery Option (Arabic)')->required()->columnSpan('full'),
+                Forms\Components\TextInput::make('name_en')->label('Cuision Name (English)')->required()->columnSpan('full'),
+                Forms\Components\TextInput::make('name_ar')->label('Cuision Name (Arabic)')->required()->columnSpan('full'),
                 Forms\Components\FileUpload::make('image')->label('Main image (500x500)')->image()->imageResizeTargetWidth('100')->imageResizeTargetHeight('100')->columnSpan('full')->required(),
             ]);
     }
