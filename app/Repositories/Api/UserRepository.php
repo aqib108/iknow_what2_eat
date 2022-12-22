@@ -7,7 +7,7 @@ use App\Models\Api\User;
 use Twilio\Rest\Client;
 use App\Http\Resources\Api\UserResource;
 use App\Http\Resources\Api\OtpGenerateResource;
-use App\Http\Resources\Api\OtpVerifyResource;
+use App\Http\Resources\Api\VerifyResource;
 use App\Http\Resources\Api\ProfileResource;
 use App\Http\Resources\Api\DobResource;
 use App\Http\Resources\Api\ImageUploadResource;
@@ -80,7 +80,6 @@ class UserRepository extends BaseRepository
                 'phone_number' => $request->phone_number,
                 'verification_code' => $request->otp,
             ];
-            try{
                 $token = "2c2b614113d01ca452baea9ce77d788b";
                 $twilio_sid = "ACa5b90499ac8133b6879fefb276856a17";
                 $twilio_verify_sid = "VA6cfbc30f37337eea5d36ba8ebc84ac42";
@@ -94,14 +93,12 @@ class UserRepository extends BaseRepository
             if ($verification->valid) {
                  tap(User::where('phone_number', $data['phone_number']))->update(['otp_verified' => 1, 'otp' => $data['verification_code']]);
                  $response = User::where('phone_number', $data['phone_number'])->first();
-                 $optResponse =  new OtpVerifyResource($response);
+                 $optResponse =new VerifyResource($response);
                  return $optResponse;
         }
-    }
-    catch(\Exception $e){
-        dd($e);
 
-    }
+
+
     }
     public function getProfile($request){
         $user = User::where('id', $request->user()->id)->first();
