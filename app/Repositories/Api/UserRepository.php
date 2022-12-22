@@ -12,6 +12,7 @@ use App\Http\Resources\Api\ProfileResource;
 use App\Http\Resources\Api\DobResource;
 use App\Http\Resources\Api\ImageUploadResource;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -45,6 +46,17 @@ class UserRepository extends BaseRepository
             return $userResponse;
            }
         }
+      public function login($request){
+        $data = [
+            'phone_number' => $request->phone_number,
+        ];
+        $user = User::where('phone_number', $data['phone_number'])->first();
+        if($user){
+            $userResponse =  new UserResource($user);
+            return $userResponse;
+        }
+
+      }
        public function generateOTP($request){
             $data = [
                 'phone_number' => $request->phone_number,
