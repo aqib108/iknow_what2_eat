@@ -64,9 +64,9 @@ class UserRepository extends BaseRepository
             // $token = env("TWILIO_AUTH_TOKEN");
             // $twilio_sid = env("TWILIO_SID");
             // $twilio_verify_sid = env("TWILIO_VERIFY_SID");
-            $token = "1ac84be82591a90098e9115a8c7a36c3";
-            $twilio_sid = "ACad6b9789b5a1fa868594be3fa181080d";
-            $twilio_verify_sid = "VA8b5aca98b878292992fe96ad834ca842";
+            $token = "2c2b614113d01ca452baea9ce77d788b";
+            $twilio_sid = "ACa5b90499ac8133b6879fefb276856a17";
+            $twilio_verify_sid = "VA6cfbc30f37337eea5d36ba8ebc84ac42";
             $user = User::updateOrCreate(['phone_number'=>$data['phone_number']],$data);
             $twilio = new Client($twilio_sid, $token);
             $response=$twilio->verify->v2->services($twilio_verify_sid)
@@ -81,9 +81,9 @@ class UserRepository extends BaseRepository
                 'verification_code' => $request->otp,
             ];
             try{
-            $token = "1ac84be82591a90098e9115a8c7a36c3";
-            $twilio_sid = "ACad6b9789b5a1fa868594be3fa181080d";
-            $twilio_verify_sid = "VA8b5aca98b878292992fe96ad834ca842";
+                $token = "2c2b614113d01ca452baea9ce77d788b";
+                $twilio_sid = "ACa5b90499ac8133b6879fefb276856a17";
+                $twilio_verify_sid = "VA6cfbc30f37337eea5d36ba8ebc84ac42";
             $twilio = new Client($twilio_sid, $token);
             $verification = $twilio->verify->v2->services($twilio_verify_sid)
                 ->verificationChecks
