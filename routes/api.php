@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\FavourtController;
 use App\Http\Controllers\Api\CuisineController;
 use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,9 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('getCuisine',[CuisineController::class,'cuisineList']);
     Route::get('restaurantDetail',[RestaurantController::class,'restaurantDetail']);
     Route::get('countryCode',[CountryController::class,'countryCode']);
+    Route::get('notification',[NotificationController::class,'notification']);
+
+
 
 
 
