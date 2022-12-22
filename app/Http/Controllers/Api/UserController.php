@@ -97,6 +97,15 @@ class UserController extends BaseController
     {
         //
     }
+    public function login(Request $request){
+        $data = $this->UserRepository->login($request);
+        if(is_null($data))
+        {
+            return $this->sendError('User Not Found');
+        }
+        return $this->sendResponse($data,'User Logged In Successfully');
+
+    }
 
     public function generateOTP(OtpGenerateRequest $request)
     {

@@ -24,4 +24,7 @@ class RestaurantRepository extends BaseRepository
     public function topItemsList($request){
         dd('Top item list');
     }
+    public function restaurantDetail($request){
+        dd('Restaurant detail');
+    }
 }

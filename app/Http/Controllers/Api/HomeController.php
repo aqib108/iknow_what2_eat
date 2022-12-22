@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
-use App\Http\Controllers\API\BaseController;
 use App\Http\Requests\Api\FeedbackRequest;
 use Illuminate\Http\Request;
 use App\Repositories\Api\FeedbackRepository;

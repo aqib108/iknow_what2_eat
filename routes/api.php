@@ -12,6 +12,8 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\AboutController;
 use App\Http\Controllers\Api\FavourtController;
 use App\Http\Controllers\Api\CuisineController;
+use App\Http\Controllers\Api\CountryController;
+use App\Http\Controllers\Api\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ use App\Http\Controllers\Api\CuisineController;
 */
 Route::controller(UserController::class)->group(function(){
     Route::post('register', 'create');
+    Route::post('login', 'login');
 });
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -50,6 +53,11 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
     Route::get('favouriteList',[FavourtController::class,'favouriteList']);
     Route::get('getCuisine',[CuisineController::class,'cuisineList']);
+    Route::get('restaurantDetail',[RestaurantController::class,'restaurantDetail']);
+    Route::get('countryCode',[CountryController::class,'countryCode']);
+    Route::get('notification',[NotificationController::class,'notification']);
+
+
 
 
 
