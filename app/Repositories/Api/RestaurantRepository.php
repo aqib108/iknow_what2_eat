@@ -22,9 +22,6 @@ class RestaurantRepository extends BaseRepository
         //return YourModel::class;
         return Restaurants::class;
     }
-    public function topItemsList($request){
-        dd('Top item list');
-    }
     public function restaurantDetail($request){
         dd('Restaurant detail');
     }

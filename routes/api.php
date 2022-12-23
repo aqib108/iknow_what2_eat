@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\FavourtController;
 use App\Http\Controllers\Api\CuisineController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\RestaurantFavourtieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('sendFeedback',[HomeController::class,'Feedback']);
     Route::get('errorReportList',[ErrorGenerateController::class,'errorReportList']);
     Route::post('reportingError',[ErrorGenerateController::class,'errorReport']);
-    Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
+    Route::get('topItemsList',[RestaurantFavourtieController::class,'topItemsList']);
     Route::get('categoryList',[CategoryController::class,'categoryList']);
     Route::get('about',[AboutController::class,'about']);
     Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
