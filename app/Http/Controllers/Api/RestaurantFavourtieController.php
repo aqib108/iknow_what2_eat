@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Api\TopItemListRequest;
 use App\Repositories\Api\RestaurantFavouriteRepository;
 
-class RestaurantFavourtieController extends Controller
+class RestaurantFavourtieController extends BaseController
 {
     protected $RestaurantFavouriteRepository;
     public function __construct(RestaurantFavouriteRepository $RestaurantFavouriteRepository)

@@ -14,6 +14,16 @@ class TopItemListResource extends JsonResource
      */
     public function toArray($request)
     {
+        return [
+            'id' => $this->id,
+            'restaurantId' => $this->restaurant_id,
+            'image'=> $this->image,
+            'name' => $this->item_name_en,
+            'avgPrice' => $this->item_price,
+
+
+
+        ];
         // return parent::toArray($request);
     }
 }

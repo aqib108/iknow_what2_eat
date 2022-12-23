@@ -4,7 +4,9 @@ namespace App\Repositories\Api;
 
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 //use Your Model
-use App\Models\Api\RestaurantFavourite;
+use App\Models\Api\RestaurantFavourtie;
+use App\Http\Resources\Api\TopItemListResource;
+
 
 /**
  * Class RestaurantFavouriteRepository.
@@ -18,9 +20,11 @@ class RestaurantFavouriteRepository extends BaseRepository
     public function model()
     {
         //return YourModel::class;
-        return RestaurantFavourite::class;
+        return RestaurantFavourtie::class;
     }
     public function topItemsList($request){
-        dd('Top Items List');
+        $data=RestaurantFavourtie::all();
+        return TopItemListResource::collection($data);
+
     }
 }

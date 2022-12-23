@@ -5,7 +5,7 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RestaurantFavourite extends Model
+class RestaurantFavourtie extends Model
 {
     use HasFactory;
     protected $fillable = [
