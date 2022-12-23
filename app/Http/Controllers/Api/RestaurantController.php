@@ -22,5 +22,9 @@ class RestaurantController extends BaseController
         $data = $this->RestaurantRepository->restaurantDetail($request);
         return $this->sendResponse($data,'Restaurant Detail generated successfully');
     }
+    public function allRestaurants(Request $request){
+        $data = $this->RestaurantRepository->allRestaurants($request);
+        return $this->sendResponse($data,'All Restaurants generated successfully');
+    }
 
 }

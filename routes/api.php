@@ -25,6 +25,7 @@ use App\Http\Controllers\Api\NotificationController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('countryCode',[CountryController::class,'countryCode']);
 Route::controller(UserController::class)->group(function(){
     Route::post('register', 'create');
     Route::post('login', 'login');
@@ -54,8 +55,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('favouriteList',[FavourtController::class,'favouriteList']);
     Route::get('getCuisine',[CuisineController::class,'cuisineList']);
     Route::get('restaurantDetail',[RestaurantController::class,'restaurantDetail']);
-    Route::get('countryCode',[CountryController::class,'countryCode']);
     Route::get('notification',[NotificationController::class,'notification']);
+    Route::get('allRestaurants',[RestaurantController::class,'allRestaurants']);
 
 
 

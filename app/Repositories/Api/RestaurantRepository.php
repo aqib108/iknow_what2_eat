@@ -6,6 +6,7 @@ use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 //use Your Model
 use App\Models\Api\Restaurants;
 use App\Http\Resources\Api\TopItemListResource;
+use App\Http\Resources\Api\RestaurantListResource;
 
 /**
  * Class RestaurantRepository.
@@ -26,5 +27,11 @@ class RestaurantRepository extends BaseRepository
     }
     public function restaurantDetail($request){
         dd('Restaurant detail');
+    }
+    public function allRestaurants($request){
+        $data=Restaurants::wherestatus('Active')->with(['restaurantPhotos','restaurantLocations'])->get();
+        // return response()->json($data);
+        return RestaurantListResource::collection($data);
+
     }
 }
