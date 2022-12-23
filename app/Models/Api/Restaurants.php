@@ -27,5 +27,37 @@ class Restaurants extends Model
     {
         return $this->hasMany(RestaurantLocation::class, 'restaurant_id', 'id');
     }
+    public function restaurantAmenity()
+    {
+        return $this->hasMany(RestaurantAmenity::class, 'restaurant_id', 'id');
+    }
+    public function restaurantCategory()
+    {
+        return $this->hasMany(RestaurantCategory::class, 'restaurant_id', 'id');
+    }
+    public function restaurantCollaboration()
+    {
+        return $this->hasMany(RestaurantCollaboration::class, 'restaurant_id', 'id');
+    }
+    public function restaurantCuisine()
+    {
+        return $this->hasMany(RestaurantCuisine::class, 'restaurant_id', 'id');
+    }
+    public function restaurantDeliveriesOption()
+    {
+        return $this->hasMany(RestaurantDeliveriesOption::class, 'restaurant_id', 'id');
+    }
+    public function restaurantMenu()
+    {
+        return $this->hasMany(RestaurantMenu::class, 'restaurant_id', 'id');
+    }
+    public function restaurantTiming()
+    {
+        return $this->hasMany(RestaurantTiming::class, 'restaurant_id', 'id');
+    }
+    public function restaurantFavourtie()
+    {
+        return $this->hasMany(RestaurantFavourtie::class, 'restaurant_id', 'id');
+    }
 
 }
