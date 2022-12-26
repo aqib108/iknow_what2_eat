@@ -24,8 +24,6 @@ class CuisineRepository extends BaseRepository
     public function cuisineList($request)
     {
         $data = Cuisine::all();
-         foreach($data as $data){
-            return new CuisineListResource($data);
-    }
+        return CuisineListResource::collection($data);
 }
 }

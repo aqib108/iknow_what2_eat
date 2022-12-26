@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Api\RestaurantAmenty;
 use App\Models\Api\RestaurantCuisine;
 use App\Models\Api\RestaurantLocation;
+use App\Models\Api\RestaurantTiming;
+use App\Models\Api\RestaurantMenu;
+use App\Models\Api\RestaurantDeliveriesOption;
+use App\Models\Api\RestaurantFoodsTruck;
+use App\Models\Api\RestaurantCollaboration;
 
 
 class Restaurants extends Model

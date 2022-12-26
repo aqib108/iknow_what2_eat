@@ -26,9 +26,6 @@ class AmenitiesResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name_en')->label('Amenity Name (English)')->required()->columnSpan('full'),
                 Forms\Components\TextInput::make('name_ar')->label('Amenity Name (Arabic)')->required()->columnSpan('full'),
-                Forms\Components\Select::make('restaurants')->label('Resturant')
-                ->multiple()
-                ->relationship('restaurants', 'title_en')->columnSpan('full')
             ]);
     }
 

@@ -14,16 +14,11 @@ class CuisineListResource extends JsonResource
      */
     public function toArray($request)
     {
-        $CuisineList = [
-            'Cuisine' => [
+        return [
             'id' => $this->id,
             'name_en' => $this->name_en,
             'image' => $this->image,
             'status' => $this->status,
-            ]
-        ];
-        return [
-           'CuisineList' => $CuisineList
         ];
         // return parent::toArray($request);
     }
