@@ -15,7 +15,7 @@ class Cuisine extends Model
     ];
     public function restaurantCuisine()
     {
-        return $this->hasMany(RestaurantCuisine::class, 'cuisine_id', 'id');
+        return $this->belongsToMany(RestaurantCuisine::class, 'cuisine_id', 'id');
     }
 
 
