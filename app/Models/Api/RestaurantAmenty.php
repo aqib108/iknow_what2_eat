@@ -10,6 +10,7 @@ use App\Models\Api\Amenty;
 class RestaurantAmenty extends Model
 {
     use HasFactory;
+    protected $table = 'restaurant_amenities';
     public function restaurant()
     {
         return $this->belongsTo(Restaurants::class, 'restaurant_id', 'id');

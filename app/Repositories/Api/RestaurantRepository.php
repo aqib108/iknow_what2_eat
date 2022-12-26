@@ -23,7 +23,7 @@ class RestaurantRepository extends BaseRepository
         return Restaurants::class;
     }
     public function restaurantDetail($request){
-        $data=Restaurants::wherestatus('Active')->with(['restaurantAmenity'])->whereid($request->restaurantID)->get();
+        $data=Restaurants::wherestatus('Active')->with(['restaurantAmenity','restaurantCuisine'])->whereid($request->restaurantID)->get();
         // return new RestaurantDetailResource($data);
         return response()->json($data);
     }

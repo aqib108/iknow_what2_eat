@@ -5,6 +5,7 @@ namespace App\Models\Api;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Api\RestaurantAmenty;
+use App\Models\Api\RestaurantCuisine;
 
 class Restaurants extends Model
 {
