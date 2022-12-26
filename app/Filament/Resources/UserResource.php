@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TagsColumn;
 use DB;
+use Hash;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
@@ -30,7 +31,8 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('email')->required(),
                 Forms\Components\Select::make('user_type_id')
                ->options(UserType::all()->pluck('type', 'id'))->default('Editor')->disablePlaceholderSelection(),
-               Forms\Components\TextInput::make('password')->password()->required(),
+               Forms\Components\TextInput::make('password')->password()->dehydrated(fn($state) => filled($state))
+               ->dehydrateStateUsing(fn($state) => Hash::make($state)),
             ]);
     }
 

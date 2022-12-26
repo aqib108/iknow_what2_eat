@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('item_name',50)->nullable();
             $table->string('price_range',100)->nullable();
             $table->string('image',100)->nullable();
-            $table->boolean('status')->default(1);
+            $table->string('status',50)->default('Publish')->nullable();
             $table->timestamps();
         });
     }
