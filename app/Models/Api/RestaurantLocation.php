@@ -12,4 +12,6 @@ class RestaurantLocation extends Model
     {
         return $this->belongsTo(Restaurants::class, 'restaurant_id', 'id' );
     }
+    
+
 }

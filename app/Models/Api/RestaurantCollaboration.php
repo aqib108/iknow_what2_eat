@@ -12,4 +12,8 @@ class RestaurantCollaboration extends Model
     {
         return $this->belongsTo(Restaurant::class, 'restaurant_id', 'id');
     }
+    public function collaboration()
+    {
+        return $this->belongsToMany(Collaboration::class, 'collaboration_id', 'id');
+    }
 }
