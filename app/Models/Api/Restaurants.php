@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Api\RestaurantAmenty;
 use App\Models\Api\RestaurantCuisine;
+use App\Models\Api\RestaurantLocation;
+
 
 class Restaurants extends Model
 {
