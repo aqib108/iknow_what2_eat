@@ -59,5 +59,9 @@ class Restaurants extends Model
     {
         return $this->hasMany(RestaurantFavourtie::class, 'restaurant_id', 'id');
     }
+    public function restaurantFoodsTruck()
+    {
+        return $this->hasMany(RestaurantFoodsTruck::class, 'restaurant_id', 'id');
+    }
 
 }

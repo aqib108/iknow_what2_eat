@@ -13,5 +13,11 @@ class Cuisine extends Model
        'image',
        'status',
     ];
+    public function restaurantCuisine()
+    {
+        return $this->hasMany(RestaurantCuisine::class, 'cuisine_id', 'id');
+    }
+
+
 
 }
