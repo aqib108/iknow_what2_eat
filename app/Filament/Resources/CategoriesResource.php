@@ -36,9 +36,9 @@ class CategoriesResource extends Resource
             Forms\Components\TextInput::make('name_ar')->label('Category Name (Arabic)')->required()->columnSpan('full'),
             IconPicker::make('icon')->columnSpan('full'),
             FileUpload::make('custom_icon')->image()->imageResizeTargetWidth('100')->imageResizeTargetHeight('100')->columnSpan('full'),
-            Select::make('resturant_ids')->label('Resturant')
+            Select::make('restaurants')->label('Resturant')
             ->multiple()
-            ->options(DB::table('restaurants')->wherestatus(1)->get()->pluck(['id','name']))->columnSpan('full')
+            ->relationship('restaurants', 'title_en')->columnSpan('full')
         ]);
     }
 

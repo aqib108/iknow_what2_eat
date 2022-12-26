@@ -25,6 +25,9 @@ class CuisinesResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name_en')->label('Cuision Name (English)')->required()->columnSpan('full'),
                 Forms\Components\TextInput::make('name_ar')->label('Cuision Name (Arabic)')->required()->columnSpan('full'),
+                Forms\Components\Select::make('restaurants')->label('Resturant')
+            ->multiple()
+            ->relationship('restaurants', 'title_en')->columnSpan('full'),
                 Forms\Components\FileUpload::make('image')->label('Main image (500x500)')->image()->imageResizeTargetWidth('100')->imageResizeTargetHeight('100')->columnSpan('full')->required(),
             ]);
     }
