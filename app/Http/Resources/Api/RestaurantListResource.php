@@ -4,7 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TopItemListResource extends JsonResource
+class RestaurantListResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,16 +14,17 @@ class TopItemListResource extends JsonResource
      */
     public function toArray($request)
     {
+    //    dd(test());
         return [
             'id' => $this->id,
-            'restaurantId' => $this->restaurant_id,
-            'image'=> $this->image,
-            'name' => $this->item_name_en,
-            'avgPrice' => $this->item_price,
-
-
+            'image' => $this->restaurantPhotos,
+            'isNew' => $this->new_in_town,
+            'name' => $this->title_en,
+            'avgPrice' => $this->price_en,
+            'location_id'=>$this->restaurantLocations
 
         ];
+
         // return parent::toArray($request);
     }
 }

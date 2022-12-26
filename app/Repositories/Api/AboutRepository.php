@@ -4,7 +4,7 @@ namespace App\Repositories\Api;
 
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 //use Your Model
-use App\Models\Api\AboutMe;
+use App\Models\AboutMe;
 use App\Http\Resources\Api\AboutResource;
 
 /**
@@ -22,6 +22,7 @@ class AboutRepository extends BaseRepository
         return AboutME::class;
     }
     public function about($request){
+
         $data = AboutMe::all();
         return AboutResource::collection($data);
     }

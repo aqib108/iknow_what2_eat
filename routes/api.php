@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\FavourtController;
 use App\Http\Controllers\Api\CuisineController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\RestaurantFavourtieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use App\Http\Controllers\Api\NotificationController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('countryCode',[CountryController::class,'countryCode']);
 Route::controller(UserController::class)->group(function(){
     Route::post('register', 'create');
     Route::post('login', 'login');
@@ -47,15 +49,15 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('sendFeedback',[HomeController::class,'Feedback']);
     Route::get('errorReportList',[ErrorGenerateController::class,'errorReportList']);
     Route::post('reportingError',[ErrorGenerateController::class,'errorReport']);
-    Route::get('topItemsList',[RestaurantController::class,'topItemsList']);
+    Route::get('topItemsList',[RestaurantFavourtieController::class,'topItemsList']);
     Route::get('categoryList',[CategoryController::class,'categoryList']);
     Route::get('about',[AboutController::class,'about']);
     Route::post('makeFavourt',[FavourtController::class,'makeFavourt']);
     Route::get('favouriteList',[FavourtController::class,'favouriteList']);
     Route::get('getCuisine',[CuisineController::class,'cuisineList']);
     Route::get('restaurantDetail',[RestaurantController::class,'restaurantDetail']);
-    Route::get('countryCode',[CountryController::class,'countryCode']);
     Route::get('notification',[NotificationController::class,'notification']);
+    Route::get('allRestaurants',[RestaurantController::class,'allRestaurants']);
 
 
 

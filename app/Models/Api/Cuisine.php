@@ -4,6 +4,7 @@ namespace App\Models\Api;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Api\RestaurantCuisine;
 
 class Cuisine extends Model
 {
@@ -13,5 +14,11 @@ class Cuisine extends Model
        'image',
        'status',
     ];
+    public function restaurantCuisine()
+    {
+        return $this->belongsToMany(RestaurantCuisine::class, 'cuisine_id', 'id');
+    }
+
+
 
 }
