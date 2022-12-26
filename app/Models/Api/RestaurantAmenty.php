@@ -4,13 +4,14 @@ namespace App\Models\Api;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Api\Restaurants;
 
 class RestaurantAmenty extends Model
 {
     use HasFactory;
     public function restaurant()
     {
-        return $this->belongsTo(Restaurant::class, 'restaurant_id', 'id');
+        return $this->belongsTo(Restaurants::class, 'restaurant_id', 'id');
     }
 
 }
