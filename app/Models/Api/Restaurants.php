@@ -4,6 +4,7 @@ namespace App\Models\Api;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Api\RestaurantAmenty;
 
 class Restaurants extends Model
 {
@@ -29,7 +30,7 @@ class Restaurants extends Model
     }
     public function restaurantAmenity()
     {
-        return $this->hasMany(RestaurantAmenity::class, 'restaurant_id', 'id');
+        return $this->hasMany(RestaurantAmenty::class, 'restaurant_id', 'id');
     }
     public function restaurantCategory()
     {

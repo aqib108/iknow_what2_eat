@@ -23,8 +23,9 @@ class RestaurantRepository extends BaseRepository
         return Restaurants::class;
     }
     public function restaurantDetail($request){
-        $data=Restaurants::wherestatus('Active')->with(['restaurantPhotos','restaurantLocations','restaurantCuisine','restaurantTiming','restaurantMenu','restaurantAmenity','restaurantFavourtie','restaurantCollaboration'])->whereid($request->restaurantID)->first();
-        return new RestaurantDetailResource($data);
+        $data=Restaurants::wherestatus('Active')->with(['restaurantAmenity'])->whereid($request->restaurantID)->get();
+        // return new RestaurantDetailResource($data);
+        return response()->json($data);
     }
     public function allRestaurants($request){
         $data=Restaurants::wherestatus('Active')->with(['restaurantPhotos','restaurantLocations'])->get();
